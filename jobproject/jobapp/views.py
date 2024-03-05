@@ -5,4 +5,4 @@ from django.shortcuts import render
 def hello(request):
     return HttpResponse('Hello world')
 def jobs(request,id):
-    return HttpResponse(f'Job Details Page {id}')
+    return HttpResponse(f'<h1>Job Details Page {id}</h1>')
