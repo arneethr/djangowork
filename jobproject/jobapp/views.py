@@ -1,17 +1,23 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render,redirect
 from django.urls import reverse
+from django.template import loader
 jobtitle=['first job','Second Job','Third Job']
 jobdesc=['First job Desc', 'Second job Desc','Third job Desc']
 # Create your views here.
-def hello(request):
+"""def hello(request):
     joblist= "<ul>"
     for j in jobtitle:
         id=(jobtitle.index(j))
         jd=reverse("jobdet",args=(id,))
         joblist+=f"<li><a href='{jd}'>{j}</a></li>"
     joblist+="</ul>"
-    return HttpResponse(joblist)
+    return HttpResponse(joblist)"""
+
+def hello(request):
+    template=loader.get_template('hello.html')
+    context={'name':"Arneeth"}
+    return HttpResponse(template.render(context,request))
 
 
 def jobs(request,id):
