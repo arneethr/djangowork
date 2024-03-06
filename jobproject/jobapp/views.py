@@ -13,11 +13,12 @@ jobdesc=['First job Desc', 'Second job Desc','Third job Desc']
         joblist+=f"<li><a href='{jd}'>{j}</a></li>"
     joblist+="</ul>"
     return HttpResponse(joblist)"""
+ 
+def hello(request):  
+    auth=True
+    context={'name':"Arneeth", 'auth':auth}
 
-def hello(request):
-    template=loader.get_template('hello.html')
-    context={'name':"Arneeth"}
-    return HttpResponse(template.render(context,request))
+    return render(request,'jobapp/hello.html',context)
 
 
 def jobs(request,id):

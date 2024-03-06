@@ -6,7 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    {% if auth %}
+    <h1>Hello </h1>
     <h3 style="text-align: end;">from {{name}}</h3>
+    {% else %}
+    <h1>Hello User</h1>
+    {% endif %}
 </body>
 </html>
